@@ -1,0 +1,104 @@
+<div class="d-flex flex-column justify-content-center align-items-center my-5">
+  <form [formGroup]="registerForm">
+    <div class="formGroup">
+      <label>Ad</label>
+      <input formControlName="firstName" type="text" class="form-control" />
+      <span
+        *ngIf="
+          formControls['firstName'].touched &&
+          hasValidationError('firstName', 'required')
+        "
+        class="text-danger"
+        >İsim girmek zorunludur.</span
+      >
+      <span
+        *ngIf="
+          formControls['firstName'].touched &&
+          hasValidationError('firstName', 'minlength')
+        "
+        class="text-danger"
+        >İsim en az 3 haneli olmalıdır.</span
+      >
+    </div>
+
+    <div class="formGroup">
+      <label>Soyad</label>
+      <input formControlName="lastName" type="text" class="form-control" />
+      <span
+        *ngIf="
+          formControls['lastName'].touched &&
+          hasValidationError('lastName', 'required')
+        "
+        class="text-danger"
+        >Soyad girmek zorunludur.</span
+      >
+      <span
+        *ngIf="
+          formControls['lastName'].touched &&
+          hasValidationError('lastName', 'minlength')
+        "
+        class="text-danger"
+        >Soyad en az 3 haneli olmalıdır.</span
+      >
+    </div>
+    <div class="formGroup">
+      <label>Yaş</label>
+      <input formControlName="age" type="number" class="form-control" />
+      <span
+        *ngIf="
+          formControls['age'].touched && hasValidationError('age', 'required')
+        "
+        class="text-danger"
+        >Yaş girmek zorunludur.</span
+      >
+
+    </div>
+
+    <div class="formGroup">
+      <label>Kullanıcı Adı</label>
+      <input formControlName="userName" type="text" class="form-control" />
+      <span
+        *ngIf="
+          formControls['userName'].touched &&
+          hasValidationError('userName', 'required')
+        "
+        class="text-danger"
+        >Kullanıcı adı girmek zorunludur.</span
+      >
+      <span
+        *ngIf="
+          formControls['userName'].touched &&
+          hasValidationError('userName', 'minlength')
+        "
+        class="text-danger"
+        >Kullanıcı adı en az 3 haneli olmalıdır.</span
+      >
+    </div>
+
+    <div class="formGroup">
+      <label>Şifre</label>
+      <input formControlName="password" type="password" class="form-control" />
+      <span
+        *ngIf="
+          formControls['password'].touched &&
+          hasValidationError('password', 'required')
+        "
+        class="text-danger"
+        >Şifre girmek zorunludur.</span
+      >
+      <span
+        *ngIf="
+          formControls['password'].touched &&
+          hasValidationError('password', 'minlength')
+        "
+        class="text-danger"
+        >Şifre en az 3 haneli olmalıdır.</span
+      >
+    </div>
+    <br />
+    <button class="btn btn-secondary mx-2">Temizle</button>
+    <button type="submit" class="btn btn-primary" (click)="register()">
+      Kaydet
+    </button>
+  </form>
+</div>
